@@ -2,25 +2,48 @@ import React from 'react'
 import PaginationPage from './PaginationPage';
 import { useState } from 'react';
 
-function PaginationVar({ postPerPage, setCount }) {
+
+
+function PaginationVar({ postPerPage, pagination, setPagination }) {
     const pageNumbers = [];
-    const apiUrl = `https://www.omdbapi.com/?s=batman&type=movie&page=${count}&apikey=7c127bc6`;
 
-    const [count, setCount] = useState(1)
+    const prevClick = () => {
 
+        if (pagination === 0) {
+            return;
+        }
+        setPagination(pagination - 1)
+    }
+
+    const nextClick = () => {
+        setPagination(pagination + 1)
+    }
     for (let i = 0; i <= postPerPage; i++) {
         pageNumbers.push(i)
     }
+    const firstPage = () => {
+        let pagination = 1;
+        setPagination(pagination)
+    }
+
+    const lastPage = () => {
+        let pagination = 37;
+        setPagination(pagination)
+    }
+
+
     return (
         <>
             <div className="pagination">
-                <a href="#">&laquo;</a>
+                <button onClick={firstPage}>First</button>
+                <a onClick={prevClick} href="#">Prev</a>
                 {pageNumbers.map(number => {
                     return (
-                        <a onClick={() => setCount(count + 1)} key={number} href="!#" >{number}</a>
+                        <a key={number} href="!#" >{number}</a>
                     )
                 })}
-                <a href="#">&raquo;</a>
+                <a onClick={nextClick} href="#">Next</a>
+                <button onClick={lastPage}>Last</button>
             </div>
         </>
     )
