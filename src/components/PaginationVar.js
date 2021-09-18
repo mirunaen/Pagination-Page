@@ -31,6 +31,10 @@ function PaginationVar({ postPerPage, pagination, setPagination }) {
         setPagination(pagination)
     }
 
+    function changePage(event) {
+        const pageNumber = Number(event.target.textContent);
+        setPagination(pageNumber)
+    }
 
     return (
         <>
@@ -39,7 +43,7 @@ function PaginationVar({ postPerPage, pagination, setPagination }) {
                 <a onClick={prevClick} href="#">Prev</a>
                 {pageNumbers.map(number => {
                     return (
-                        <a key={number} href="!#" >{number}</a>
+                        <a onClick={changePage} key={number} href="!#" >{number}</a>
                     )
                 })}
                 <a onClick={nextClick} href="#">Next</a>
