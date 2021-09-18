@@ -61,16 +61,16 @@ We will proceed to create the function prevClick and nextClick for the next and 
 
 Our core skeleton:
 
-![alt text](screens/app.png)
+![app component](screens/app.png)
 ￼
 
 The PaginationPage component:
 ￼
-![alt text](screens/paginationpage.png)
+![pagination page component](screens/paginationpage.png)
 
 The PaginationVar component:
 
-![alt text](screens/paginationvar.png)
+![paginationvar component](screens/paginationvar.png)
 ￼
 
 The final result:
