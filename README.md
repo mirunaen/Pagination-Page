@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# The Pagination Page
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -14,57 +14,64 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+### `A guide to build a pagination component in react`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# What it is?
+When fetching data(you have to know the size of the data already to use pagination and don’t add or delete data) from an API and render it in the screen we use pagination.
 
-### `npm run build`
+Rendering all the data at once makes your computer really slow, to optimize the performance we use pagination.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# The Pagination Component.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+After having already our react-app we are going to create a pagination component.
+There we will use the following:
 
-### `npm run eject`
+-A **PaginationVar** and a **PaginationPage** component.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `App.js (the parent of everything):`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The prop we will declare in our parent.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-pagination: the page we are in(initial value is 1 and this is an array)
+We will useState to change the value and we will incorporate it to the API url value to make it dynamic.
+The state is pagination and the function is setPagination.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-movieList: the array of objects that we are going to fetch and render.
+Function setMovieList.
 
-## Learn More
+-postPerPage: the length of the movieList that is going to be always 10 by default.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-Index: the index for our current value(state component)
+-pageSize:represents the amount of data rendered in every page.(constant)
+-onPageChange:callback function that runs when the page is updated.
 
-### Code Splitting
+### PaginationPage:
+- I created it to display the table of the list of movies rendered in every page.
+- We use movieList and fetch the data we want.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### PaginationVar:
 
-### Analyzing the Bundle Size
+-It will use postPerPage, pagination and setPagination props from the parent.
+We will proceed to create the function prevClick and nextClick for the next and prev buttons.
+-We will also add the functionality to the numbers of the pages to go to that page depending on the number from 1 to 10.
+-And the first and last page buttons that will redirect the user to the last and first page.
+ 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Our core skeleton:
 
-### Making a Progressive Web App
+![alt text](screens/app.png)
+￼
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The PaginationPage component:
+￼
+![alt text](screens/pagiantionpage.png)
 
-### Advanced Configuration
+The PaginationVar component:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![alt text](screens/paginationvar.png)
+￼
 
-### Deployment
+The final result:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
