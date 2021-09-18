@@ -73,5 +73,4 @@ The PaginationVar component:
 ![paginationvar component](screens/paginationvar.png)
 ￼
 
-The final result:
-
+ 
