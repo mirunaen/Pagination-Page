@@ -66,7 +66,7 @@ Our core skeleton:
 
 The PaginationPage component:
 ￼
-![alt text](screens/pagiantionpage.png)
+![alt text](screens/paginationpage.png)
 
 The PaginationVar component:
 
